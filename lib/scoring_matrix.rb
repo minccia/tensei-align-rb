@@ -11,7 +11,13 @@ class ScoringMatrix
     @s_seq = s_seq
   end
 
-  def self.generate
+  def self.generate(f_seq, s_seq)
+    new(f_seq, s_seq).generate
+  end
+
+  private
+
+  def generate
     base = Array.new(row_count) { Array.new(column_count, nil) }
 
     f_seq.each_char.with_index do |ch, i| 
@@ -27,17 +33,11 @@ class ScoringMatrix
     end
   end
 
-  def column_count
-    f_seq.length + INITIALIZATION_OFFSET
-  end
-
   def row_count
     s_seq.length + INITIALIZATION_OFFSET
   end
 
-  private
-
-  def generate
-
+  def column_count
+    f_seq.length + INITIALIZATION_OFFSET
   end
 end
