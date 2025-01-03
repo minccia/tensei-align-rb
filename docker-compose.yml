@@ -1,0 +1,9 @@
+services:
+  app:
+    container_name: ruby
+    working_dir: /usr/src/src/
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
