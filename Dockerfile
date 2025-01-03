@@ -1,4 +1,6 @@
-FROM ruby:latest AS final 
+FROM ruby:3.4.1 AS final 
+
+WORKDIR /usr/src/
 
 COPY Gemfile . 
 
